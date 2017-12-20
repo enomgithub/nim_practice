@@ -1,3 +1,5 @@
+import unicode
+
 let ch: char = 'a'
 echo "ch: ", ch
 echo "code of ch: ", ch.ord
@@ -28,3 +30,10 @@ for c in strJp:
 
 for i in 0..strJp.len:
   echo "strJp[", i, "].ord: ", strJp[i].ord
+
+# unicode モジュールを使って文字列を Unicode として扱い、UTF-8 へエンコードする
+# unicode モジュールのドキュメントを参照
+if strJp.validateUtf8 == -1:
+  echo "length of Unicode strJp: ", strJp.runeLen
+  for u in strJp.toRunes:
+    echo u.toUTF8
