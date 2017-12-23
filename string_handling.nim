@@ -2,22 +2,27 @@ import strutils  # 文字列操作用モジュール
 import unicode   # Unicode 操作用モジュール
 
 # ASCII文字
+echo "# char"
 let ch: char = 'a'
 echo "ch: ", ch
 echo "code of ch: ", ch.ord
+echo ""
 
 # ASCII文字列
+echo "# string"
 let str: string = "abc"
 
 # 一文字ずつ表示する
-for i in [0..2]:
-  echo str[i]
+for i in 0..2:
+  echo "str[", i, "]: ", str[i]
 
 # 同様に、一文字ずつ表示する
-for c in str:
-  echo c
+for i, c in str:
+  echo "str[", i, "]: ", c
+echo ""
 
 # マルチバイト文字の文字列
+echo "# string (multibyte character)"
 let strJp: string = "テスト"
 echo "length = ", strJp.len  # 長さは9
 echo "strJp: ", strJp        # テスト と表示
@@ -27,8 +32,8 @@ for i in 0..strJp.len:
   echo "strJp[", i, "]: ", strJp[i]
 
 # 同様に、一文字ずつ表示できない
-for c in strJp:
-  echo c
+for i, c in strJp:
+  echo "strJp[", i, "]: ", c
 
 # 文字コードを1バイトずつ表示
 for i in 0..strJp.len:
