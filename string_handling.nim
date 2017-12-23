@@ -1,10 +1,12 @@
-import unicode
+import strutils  # 文字列操作用モジュール
+import unicode   # Unicode 操作用モジュール
 
+# ASCII文字
 let ch: char = 'a'
 echo "ch: ", ch
 echo "code of ch: ", ch.ord
 
-# 文字列
+# ASCII文字列
 let str: string = "abc"
 
 # 一文字ずつ表示する
@@ -28,6 +30,7 @@ for i in 0..strJp.len:
 for c in strJp:
   echo c
 
+# 文字コードを1バイトずつ表示
 for i in 0..strJp.len:
   echo "strJp[", i, "].ord: ", strJp[i].ord
 
@@ -36,4 +39,8 @@ for i in 0..strJp.len:
 if strJp.validateUtf8 == -1:
   echo "length of Unicode strJp: ", strJp.runeLen
   for u in strJp.toRunes:
+    echo u.toUTF8
+
+  # テスト --> ラスト に置換
+  for u in strJp.replace("テ", "ラ").toRunes:
     echo u.toUTF8
