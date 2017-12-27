@@ -49,3 +49,9 @@ if strJp.validateUtf8 == -1:
   # テスト --> ラスト に置換
   for u in strJp.replace("テ", "ラ").toRunes:
     echo u.toUTF8
+
+# 編集距離を求める
+echo editDistance("santa", "satan")  # --> 2
+
+# マルチバイト文字には対応しない
+echo editDistance("ニーモニック", "デモニック")  # --> 4（正しくは2）
